@@ -7,3 +7,4 @@ project(
 
 incdir = include_directories('include')
 subdir('src')
+subdir('doc')
