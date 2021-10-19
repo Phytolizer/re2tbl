@@ -1,0 +1,32 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v1.0.0
+    - name: Dependencies
+      run: |
+        apt-get install doxygen python3-sphinx breathe-doc
+        source doc/.venv/bin/activate
+        pip install -r doc/requirements.txt
+    - name: Build documentation
+      run: |
+        doxygen
+        make html
+        cd _build/html
+        touch .nojekyll
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: doc/_build/html

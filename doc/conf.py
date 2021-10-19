@@ -45,6 +45,10 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 #
 html_theme = "furo"
 
+highlight_language = "c++"
+
+html_theme_options = {}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -52,4 +56,6 @@ html_static_path = ["_static"]
 
 breathe_projects = {"re2tbl": "doxyxml"}
 breathe_default_project = "re2tbl"
+breathe_default_members = ("members", "undoc-members")
 
+github_url = "https://github.com/Phytolizer/re2tbl"
