@@ -192,14 +192,14 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv46re2tbl">
 <span id="_CPPv36re2tbl"></span><span id="_CPPv26re2tbl"></span><span class="target" id="namespacere2tbl"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">re2tbl</span></span></span><a class="headerlink" href="#_CPPv46re2tbl" title="Permalink to this definition">¶</a><br/></dt>
-<dd><p>All of the <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#namespacere2tbl"><span class="std std-ref"><span class="pre">re2tbl</span></span></a></code> declarations are within this namespace. </p>
+<dd><p>All of the <code class="docutils literal notranslate"><a class="reference internal" href="#namespacere2tbl"><span class="std std-ref"><span class="pre">re2tbl</span></span></a></code> declarations are within this namespace. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl14RegexTokenTypeE">
 <span id="_CPPv3N6re2tbl14RegexTokenTypeE"></span><span id="_CPPv2N6re2tbl14RegexTokenTypeE"></span><span class="target" id="namespacere2tbl_1a5b7feea398c1e94e6ea5b03f89846c7f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RegexTokenType</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl14RegexTokenTypeE" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>Classifies a regular expression component for parsing.</p>
-<p>Primarily used as a member for <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1RegexToken"><span class="std std-ref"><span class="pre">RegexToken</span></span></a></code>. </p>
+<p>Primarily used as a member for <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1RegexToken"><span class="std std-ref"><span class="pre">RegexToken</span></span></a></code>. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl14RegexTokenType8kLiteralE">
@@ -245,7 +245,7 @@
 <span id="_CPPv3N6re2tbl8LexRegexENSt11string_viewE"></span><span id="_CPPv2N6re2tbl8LexRegexENSt11string_viewE"></span><span id="re2tbl::LexRegex__std::string_view"></span><span class="target" id="namespacere2tbl_1a7f9640450c8f9639a5f9458d2a9f13da"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6re2tbl10RegexTokenE" title="re2tbl::RegexToken"><span class="n"><span class="pre">RegexToken</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LexRegex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string_view</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">text</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6re2tbl8LexRegexENSt11string_viewE" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>Classify all components of a regular expression.</p>
 <p>This is the “entry point” of the library.</p>
-<p>After calling this function, you should pass the return value to <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code>.</p>
+<p>After calling this function, you should pass the return value to <code class="docutils literal notranslate"><a class="reference internal" href="#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>text</strong> – the regular expression </p>
@@ -260,13 +260,13 @@
 <span id="_CPPv3N6re2tbl10ParseRegexERKNSt6vectorI10RegexTokenEE"></span><span id="_CPPv2N6re2tbl10ParseRegexERKNSt6vectorI10RegexTokenEE"></span><span id="re2tbl::ParseRegex__std::vector:RegexToken:CR"></span><span class="target" id="namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"></span><a class="reference internal" href="#_CPPv4N6re2tbl3NfaE" title="re2tbl::Nfa"><span class="n"><span class="pre">Nfa</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParseRegex</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6re2tbl10RegexTokenE" title="re2tbl::RegexToken"><span class="n"><span class="pre">RegexToken</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">tokens</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6re2tbl10ParseRegexERKNSt6vectorI10RegexTokenEE" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>Construct an NFA from a list of tokens.</p>
 <p><dl class="simple">
-<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Nfa"><span class="std std-ref">Nfa</span></a> </p>
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#structre2tbl_1_1Nfa"><span class="std std-ref">Nfa</span></a> </p>
 </dd>
 </dl>
 </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>tokens</strong> – the tokens to parse, usually as a return value of <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#namespacere2tbl_1a7f9640450c8f9639a5f9458d2a9f13da"><span class="std std-ref"><span class="pre">LexRegex()</span></span></a></code>. </p>
+<dd class="field-odd"><p><strong>tokens</strong> – the tokens to parse, usually as a return value of <code class="docutils literal notranslate"><a class="reference internal" href="#namespacere2tbl_1a7f9640450c8f9639a5f9458d2a9f13da"><span class="std std-ref"><span class="pre">LexRegex()</span></span></a></code>. </p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the constructed NFA.</p>
@@ -322,7 +322,7 @@
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7DfaEdgeE">
 <span id="_CPPv3N6re2tbl7DfaEdgeE"></span><span id="_CPPv2N6re2tbl7DfaEdgeE"></span><span id="re2tbl::DfaEdge"></span><span class="target" id="structre2tbl_1_1DfaEdge"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DfaEdge</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl7DfaEdgeE" title="Permalink to this definition">¶</a><br/></dt>
-<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A connection between <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1DfaNode"><span class="std std-ref"><span class="pre">DfaNode</span></span></a></code>s. </p>
+<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A connection between <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1DfaNode"><span class="std std-ref"><span class="pre">DfaNode</span></span></a></code>s. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
@@ -341,7 +341,7 @@
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7DfaNodeE">
 <span id="_CPPv3N6re2tbl7DfaNodeE"></span><span id="_CPPv2N6re2tbl7DfaNodeE"></span><span id="re2tbl::DfaNode"></span><span class="target" id="structre2tbl_1_1DfaNode"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DfaNode</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl7DfaNodeE" title="Permalink to this definition">¶</a><br/></dt>
-<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A single element of a <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Dfa"><span class="std std-ref"><span class="pre">Dfa</span></span></a></code>.</p>
+<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A single element of a <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1Dfa"><span class="std std-ref"><span class="pre">Dfa</span></span></a></code>.</p>
 <p>Maintains a unique identifier for convenience. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
@@ -380,13 +380,13 @@
 <span id="_CPPv3N6re2tbl3Nfa7AddNodeEv"></span><span id="_CPPv2N6re2tbl3Nfa7AddNodeEv"></span><span id="re2tbl::Nfa::AddNode"></span><span class="target" id="structre2tbl_1_1Nfa_1ac7c60380b51b616a6e85b7841683ad7f"></span><a class="reference internal" href="#_CPPv4N6re2tbl7NfaNodeE" title="re2tbl::NfaNode"><span class="n"><span class="pre">NfaNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">AddNode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6re2tbl3Nfa7AddNodeEv" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>Create a new node within the NFA.</p>
 <p>It will initially be nonaccepting and have no edges leading out.</p>
-<p>You will probably not call this function directly, as it is called by <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code>. </p>
+<p>You will probably not call this function directly, as it is called by <code class="docutils literal notranslate"><a class="reference internal" href="#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code>. </p>
 </dd></dl>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl3Nfa12ConnectNodesEP7NfaNodeP7NfaNodec">
 <span id="_CPPv3N6re2tbl3Nfa12ConnectNodesEP7NfaNodeP7NfaNodec"></span><span id="_CPPv2N6re2tbl3Nfa12ConnectNodesEP7NfaNodeP7NfaNodec"></span><span id="re2tbl::Nfa::ConnectNodes__NfaNodeP.NfaNodeP.c"></span><span class="target" id="structre2tbl_1_1Nfa_1ad39cbd75c605d80be5c0c1f02e8c1b4a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConnectNodes</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6re2tbl7NfaNodeE" title="re2tbl::NfaNode"><span class="n"><span class="pre">NfaNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">a</span></span>, <a class="reference internal" href="#_CPPv4N6re2tbl7NfaNodeE" title="re2tbl::NfaNode"><span class="n"><span class="pre">NfaNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">b</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">transition</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'\0'</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6re2tbl3Nfa12ConnectNodesEP7NfaNodeP7NfaNodec" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>Create an edge between two nodes. The edge will require consuming a character to move if <code class="docutils literal notranslate"><span class="pre">transition</span></code> is not the null character.</p>
-<p>Like <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Nfa_1ac7c60380b51b616a6e85b7841683ad7f"><span class="std std-ref"><span class="pre">AddNode()</span></span></a></code>, it is called by <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code> and calling it directly is unnecessary.</p>
+<p>Like <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1Nfa_1ac7c60380b51b616a6e85b7841683ad7f"><span class="std std-ref"><span class="pre">AddNode()</span></span></a></code>, it is called by <code class="docutils literal notranslate"><a class="reference internal" href="#namespacere2tbl_1a150907d6cd6eae5073ee822483d21ede"><span class="std std-ref"><span class="pre">ParseRegex()</span></span></a></code> and calling it directly is unnecessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -416,12 +416,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl3Nfa5nodesE">
 <span id="_CPPv3N6re2tbl3Nfa5nodesE"></span><span id="_CPPv2N6re2tbl3Nfa5nodesE"></span><span id="re2tbl::Nfa::nodes__std::vector:std::unique_ptr:NfaNode::"></span><span class="target" id="structre2tbl_1_1Nfa_1acbd59120dbf4349c6bbcad6c9bb5b39d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6re2tbl7NfaNodeE" title="re2tbl::NfaNode"><span class="n"><span class="pre">NfaNode</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nodes</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl3Nfa5nodesE" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>The nodes which make up this NFA.</p>
-<p>Note that you should not iterate these in order, as it is meaningless. Use each <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1NfaNode"><span class="std std-ref"><span class="pre">NfaNode</span></span></a></code>’s edges to make moves based on the input string. </p>
+<p>Note that you should not iterate these in order, as it is meaningless. Use each <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1NfaNode"><span class="std std-ref"><span class="pre">NfaNode</span></span></a></code>’s edges to make moves based on the input string. </p>
 </dd></dl>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl3Nfa5startE">
 <span id="_CPPv3N6re2tbl3Nfa5startE"></span><span id="_CPPv2N6re2tbl3Nfa5startE"></span><span id="re2tbl::Nfa::start__NfaNodeP"></span><span class="target" id="structre2tbl_1_1Nfa_1abf96d78ca4591c0f8ab9602f091dd929"></span><a class="reference internal" href="#_CPPv4N6re2tbl7NfaNodeE" title="re2tbl::NfaNode"><span class="n"><span class="pre">NfaNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl3Nfa5startE" title="Permalink to this definition">¶</a><br/></dt>
-<dd><p>A pointer within <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Nfa_1acbd59120dbf4349c6bbcad6c9bb5b39d"><span class="std std-ref"><span class="pre">nodes</span></span></a></code> that refers to the initial state.</p>
+<dd><p>A pointer within <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1Nfa_1acbd59120dbf4349c6bbcad6c9bb5b39d"><span class="std std-ref"><span class="pre">nodes</span></span></a></code> that refers to the initial state.</p>
 <p>In practice, this is always equal to <code class="docutils literal notranslate"><span class="pre">&amp;nodes[0]</span></code>. </p>
 </dd></dl>
 </div>
@@ -447,7 +447,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7NfaEdge5charsE">
 <span id="_CPPv3N6re2tbl7NfaEdge5charsE"></span><span id="_CPPv2N6re2tbl7NfaEdge5charsE"></span><span id="re2tbl::NfaEdge::chars__std::bitset:std::numeric_limits&lt;char&gt;::max()-+-1:"></span><span class="target" id="structre2tbl_1_1NfaEdge_1a90d9f7ecc6351893968b5d1864c90a60"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">bitset</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">numeric_limits</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="o"><span class="pre">+</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chars</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl7NfaEdge5charsE" title="Permalink to this definition">¶</a><br/></dt>
 <dd><p>The set of characters that need to be consumed to traverse this edge.</p>
-<p>It will be empty if <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1NfaEdge_1aa21689b6ea030f4612073502cef74311"><span class="std std-ref"><span class="pre">epsilon</span></span></a></code> is true. </p>
+<p>It will be empty if <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1NfaEdge_1aa21689b6ea030f4612073502cef74311"><span class="std std-ref"><span class="pre">epsilon</span></span></a></code> is true. </p>
 </dd></dl>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7NfaEdge4nextE">
@@ -460,14 +460,14 @@
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7NfaNodeE">
 <span id="_CPPv3N6re2tbl7NfaNodeE"></span><span id="_CPPv2N6re2tbl7NfaNodeE"></span><span id="re2tbl::NfaNode"></span><span class="target" id="structre2tbl_1_1NfaNode"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NfaNode</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl7NfaNodeE" title="Permalink to this definition">¶</a><br/></dt>
-<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A single node of the <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Nfa"><span class="std std-ref"><span class="pre">Nfa</span></span></a></code> structure.</p>
+<dd><em>#include &lt;re2tbl.hpp&gt;</em><p>A single node of the <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1Nfa"><span class="std std-ref"><span class="pre">Nfa</span></span></a></code> structure.</p>
 <p>Maintains its own index as <code class="docutils literal notranslate"><span class="pre">id</span></code> for convenience. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7NfaNode2idE">
 <span id="_CPPv3N6re2tbl7NfaNode2idE"></span><span id="_CPPv2N6re2tbl7NfaNode2idE"></span><span id="re2tbl::NfaNode::id__std::s"></span><span class="target" id="structre2tbl_1_1NfaNode_1a9593526512c230ad6a6c237b1da6c3e9"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">id</span></span></span><a class="headerlink" href="#_CPPv4N6re2tbl7NfaNode2idE" title="Permalink to this definition">¶</a><br/></dt>
-<dd><p>The index of this node in the <code class="docutils literal notranslate"><a class="reference internal" href="../re2tbl_hpp.html#structre2tbl_1_1Nfa"><span class="std std-ref"><span class="pre">Nfa</span></span></a></code>, used as a unique identifier. </p>
+<dd><p>The index of this node in the <code class="docutils literal notranslate"><a class="reference internal" href="#structre2tbl_1_1Nfa"><span class="std std-ref"><span class="pre">Nfa</span></span></a></code>, used as a unique identifier. </p>
 </dd></dl>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6re2tbl7NfaNode9acceptingE">
