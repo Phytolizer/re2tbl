@@ -19,6 +19,7 @@ jobs:
         python3 -m pip install -r doc/requirements.txt
     - name: Build documentation
       run: |
+        cd doc
         doxygen
         make html
         cd _build/html
