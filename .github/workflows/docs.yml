@@ -16,9 +16,7 @@ jobs:
     - name: Dependencies
       run: |
         sudo apt-get install doxygen python3-sphinx breathe-doc
-        pwd
-        source doc/.venv/bin/activate
-        pip install -r doc/requirements.txt
+        python3 -m pip install -r doc/requirements.txt
     - name: Build documentation
       run: |
         doxygen
