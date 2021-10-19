@@ -1,3 +1,1 @@
-builddir
-doc/doxyxml
-doc/_build
+/builddir
