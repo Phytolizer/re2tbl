@@ -1,4 +1,4 @@
-.. _api_re2tbl:
+.. _api_re2tbl_regex:
 
 Regular expression parsing
 ==========================
