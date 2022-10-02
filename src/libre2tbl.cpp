@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <stack>
@@ -40,6 +41,9 @@ static std::unordered_set<std::size_t>
 ComputeEpsilonClosure(const re2tbl::Nfa& nfa, std::size_t node);
 static std::unordered_set<std::size_t>
 MoveOn(const re2tbl::Nfa& nfa, std::unordered_set<std::size_t> nodes, char c);
+
+/// Convert a char to a printable form.
+static std::string ToPrintable(int c);
 
 re2tbl::NfaNode* re2tbl::Nfa::AddNode()
 {
@@ -437,6 +441,37 @@ MoveOn(const re2tbl::Nfa& nfa, std::unordered_set<std::size_t> nodes, char c)
 	return result;
 }
 
+static std::string ToPrintable(int c)
+{
+	if (std::isprint(c))
+	{
+		return std::string(1, c);
+	}
+
+	switch (c)
+	{
+	case '\n':
+		return "\\n";
+	case '\r':
+		return "\\r";
+	case '\t':
+		return "\\t";
+	case '\v':
+		return "\\v";
+	case '\f':
+		return "\\f";
+	case '\a':
+		return "\\a";
+	case '\b':
+		return "\\b";
+	case '\0':
+		return "\\0";
+	default:
+		// just return the integer value
+		return std::to_string(c);
+	}
+}
+
 void re2tbl::Dfa::Display(std::ostream& os)
 {
 	os << "Start node is (" << start << ")\n";
@@ -501,4 +536,79 @@ void re2tbl::Dfa::Minimize()
 			}
 		}
 	}
+}
+
+re2tbl::Table::Table(const re2tbl::Dfa& dfa)
+{
+	std::array<std::size_t, std::numeric_limits<char>::max() + 2> error_row;
+	error_row.fill(0);
+	transitions.emplace_back(std::move(error_row));
+	for (const auto& node : dfa.nodes)
+	{
+		std::array<std::size_t, std::numeric_limits<char>::max() + 2> row;
+		// 0 points to the error state
+		row.fill(0);
+		for (const auto& edge : node.next)
+		{
+			for (int c = 0; c <= std::numeric_limits<char>::max(); ++c)
+			{
+				if (edge.move.test(c))
+				{
+					row[c] = edge.next->id;
+				}
+			}
+		}
+		transitions.emplace_back(std::move(row));
+	}
+}
+
+void re2tbl::Table::Display(std::ostream& os) const
+{
+	std::size_t max_id = transitions.size() - 1;
+	std::size_t max_id_len = 0;
+	while (max_id > 0)
+	{
+		max_id /= 10;
+		++max_id_len;
+	}
+	max_id_len = std::max(max_id_len, std::size_t(3));
+
+	os << std::setw(max_id_len) << "st#"
+	   << " ";
+	for (int c = 0; c <= std::numeric_limits<char>::max(); ++c)
+	{
+		os << std::setw(max_id_len) << ToPrintable(static_cast<char>(c)) << " ";
+	}
+	os << std::setw(max_id_len) << "err"
+	   << "\n";
+	for (std::size_t i = 0; i < transitions.size(); ++i)
+	{
+		const auto& row = transitions[i];
+		os << std::setw(max_id_len) << i << " ";
+		for (std::size_t id : row)
+		{
+			os << std::setw(max_id_len) << id << " ";
+		}
+		os << "\n";
+	}
+}
+
+void re2tbl::Table::Emit(std::ostream& os, std::string_view name) const
+{
+	os << "#include <array>\n";
+	os << "#include <cstddef>\n";
+	os << "#include <limits>\n";
+	os << "\n";
+	os << "constexpr std::array<std::array<std::size_t, std::numeric_limits<char>::max() + 2>, "
+	   << transitions.size() << "> " << name << " = {{\n";
+	for (const auto& row : transitions)
+	{
+		os << "\t{";
+		for (std::size_t id : row)
+		{
+			os << id << ", ";
+		}
+		os << "},\n";
+	}
+	os << "}};\n";
 }

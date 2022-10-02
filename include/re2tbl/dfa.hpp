@@ -20,7 +20,7 @@ struct DfaEdge
 	///
 	/// When traversing, exactly one character from this set
 	/// will be consumed.
-	std::bitset<std::numeric_limits<char>::max()> move;
+	std::bitset<std::numeric_limits<char>::max() + 1> move;
 	/// The destination of this edge.
 	DfaNode* next;
 };
@@ -62,7 +62,7 @@ struct Dfa
 	/// Construct the DFA from an existing NFA.
 	///
 	/// @param nfa the NFA to make deterministic
-	Dfa(const Nfa& nfa);
+	explicit Dfa(const Nfa& nfa);
 
 	/// Output the contents of the DFA in a human-readable format.
 	///

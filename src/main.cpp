@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -16,4 +17,10 @@ int main()
 	nfa.Display(std::cout);
 	auto dfa = re2tbl::Dfa {nfa};
 	dfa.Display(std::cout);
+	auto table = re2tbl::Table {dfa};
+	table.Display(std::cout);
+	{
+		std::ofstream os {"table.hpp"};
+		table.Emit(os, "kTestTable");
+	}
 }

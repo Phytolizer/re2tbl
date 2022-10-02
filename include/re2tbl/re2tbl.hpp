@@ -6,6 +6,7 @@
 #include "dfa.hpp"
 #include "nfa.hpp"
 #include "regex.hpp"
+#include "table.hpp"
 
 /// @namespace re2tbl
 ///
