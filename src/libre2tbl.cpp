@@ -368,9 +368,10 @@ re2tbl::Dfa::Dfa(const re2tbl::Nfa& nfa)
 				continue;
 			}
 			auto edge = std::find_if(
-			    current->next.begin(), current->next.end(), [&move_result](const DfaEdge& e) {
-				    return e.next->nfa_equivalent == move_result;
-			    });
+			    current->next.begin(),
+			    current->next.end(),
+			    [&move_result](const DfaEdge& e) { return e.next->nfa_equivalent == move_result; }
+			);
 			if (edge == current->next.end())
 			{
 				auto next =
@@ -393,7 +394,8 @@ re2tbl::Dfa::Dfa(const re2tbl::Nfa& nfa)
 					    .accepting = std::any_of(
 					        move_result.begin(),
 					        move_result.end(),
-					        [&nfa](const std::size_t node) { return nfa.nodes[node]->accepting; }),
+					        [&nfa](const std::size_t node) { return nfa.nodes[node]->accepting; }
+					    ),
 					    .next = {},
 					});
 					current = &nodes[current_idx];
@@ -422,7 +424,8 @@ MoveOn(const re2tbl::Nfa& nfa, std::unordered_set<std::size_t> nodes, char c)
 		auto it = std::find_if(
 		    nfa.nodes[node]->next.begin(),
 		    nfa.nodes[node]->next.end(),
-		    [c](const re2tbl::NfaEdge& edge) { return edge.chars.test(c); });
+		    [c](const re2tbl::NfaEdge& edge) { return edge.chars.test(c); }
+		);
 		if (it != nfa.nodes[node]->next.end())
 		{
 			for (std::size_t move : ComputeEpsilonClosure(nfa, it->next->id))

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+
 #include "nfa.hpp"
 
 namespace re2tbl

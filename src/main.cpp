@@ -15,5 +15,5 @@ int main()
 	auto nfa = re2tbl::ParseRegex(tokens);
 	nfa.Display(std::cout);
 	auto dfa = re2tbl::Dfa {nfa};
-    dfa.Display(std::cout);
+	dfa.Display(std::cout);
 }
