@@ -353,7 +353,7 @@ re2tbl::Dfa::Dfa(const re2tbl::Nfa& nfa)
 	{
 		auto current_set = work_list.top();
 		DfaNode* current =
-		    &*std::find_if(nodes.begin(), nodes.end(), [&current_set](const auto& node) {
+		    &*std::find_if(nodes.begin(), nodes.end(), [&current_set](const DfaNode& node) {
 			    return node.nfa_equivalent == current_set;
 		    });
 		std::size_t current_idx = current->id;
@@ -368,14 +368,15 @@ re2tbl::Dfa::Dfa(const re2tbl::Nfa& nfa)
 				continue;
 			}
 			auto edge = std::find_if(
-			    current->next.begin(), current->next.end(), [&move_result](const auto& e) {
+			    current->next.begin(), current->next.end(), [&move_result](const DfaEdge& e) {
 				    return e.next->nfa_equivalent == move_result;
 			    });
 			if (edge == current->next.end())
 			{
-				auto next = std::find_if(nodes.begin(), nodes.end(), [&move_result](const auto& e) {
-					return e.nfa_equivalent == move_result;
-				});
+				auto next =
+				    std::find_if(nodes.begin(), nodes.end(), [&move_result](const DfaNode& e) {
+					    return e.nfa_equivalent == move_result;
+				    });
 				if (next != nodes.end())
 				{
 					current->next.emplace_back(DfaEdge {
@@ -392,7 +393,7 @@ re2tbl::Dfa::Dfa(const re2tbl::Nfa& nfa)
 					    .accepting = std::any_of(
 					        move_result.begin(),
 					        move_result.end(),
-					        [&nfa](const auto& node) { return nfa.nodes[node]->accepting; }),
+					        [&nfa](const std::size_t node) { return nfa.nodes[node]->accepting; }),
 					    .next = {},
 					});
 					current = &nodes[current_idx];
@@ -419,9 +420,9 @@ MoveOn(const re2tbl::Nfa& nfa, std::unordered_set<std::size_t> nodes, char c)
 	for (std::size_t node : nodes)
 	{
 		auto it = std::find_if(
-		    nfa.nodes[node]->next.begin(), nfa.nodes[node]->next.end(), [c](const auto& edge) {
-			    return edge.chars.test(c);
-		    });
+		    nfa.nodes[node]->next.begin(),
+		    nfa.nodes[node]->next.end(),
+		    [c](const re2tbl::NfaEdge& edge) { return edge.chars.test(c); });
 		if (it != nfa.nodes[node]->next.end())
 		{
 			for (std::size_t move : ComputeEpsilonClosure(nfa, it->next->id))
@@ -479,15 +480,16 @@ void re2tbl::Dfa::Minimize()
 			std::unordered_set<std::size_t> x;
 			for (const auto& node : nodes)
 			{
-				auto edge = std::find_if(node.next.begin(), node.next.end(), [c](const auto& edge) {
-					return edge.move.test(c);
-				});
+				auto edge =
+				    std::find_if(node.next.begin(), node.next.end(), [c](const DfaEdge& edge) {
+					    return edge.move.test(c);
+				    });
 				if (edge == node.next.end())
 				{
 					// doesn't move on c
 					continue;
 				}
-				if (std::find_if(a.begin(), a.end(), [&edge](const auto& n) {
+				if (std::find_if(a.begin(), a.end(), [&edge](const std::size_t n) {
 					    return n == edge->next->id;
 				    }) != a.end())
 				{
